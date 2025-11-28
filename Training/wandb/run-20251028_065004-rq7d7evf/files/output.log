@@ -1,0 +1,46 @@
+{'loss': 1.1602, 'grad_norm': 0.1064453125, 'learning_rate': 5.6907312692636665e-05, 'epoch': 1.0}
+{'eval_loss': 0.6060222387313843, 'eval_runtime': 75.0241, 'eval_samples_per_second': 9.824, 'eval_steps_per_second': 9.824, 'epoch': 1.0}
+Traceback (most recent call last):
+  File "/var/lib/jenkins/train.py", line 282, in <module>
+    start_training(model, tokenizer, dataset, training_args)
+  File "/var/lib/jenkins/train.py", line 256, in start_training
+    result = trainer.train()
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2790, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 3221, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 3170, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 4519, in evaluate
+    self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, output.metrics)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_callback.py", line 538, in on_evaluate
+    return self.call_event("on_evaluate", args, state, control, metrics=metrics)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_callback.py", line 556, in call_event
+    result = getattr(callback, event)(
+  File "/var/lib/jenkins/train.py", line 212, in on_evaluate
+    ppl = math.exp(metrics["eval_loss"])
+NameError: name 'math' is not defined
+Traceback (most recent call last):
+  File "/var/lib/jenkins/train.py", line 282, in <module>
+    start_training(model, tokenizer, dataset, training_args)
+  File "/var/lib/jenkins/train.py", line 256, in start_training
+    result = trainer.train()
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2790, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 3221, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 3170, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 4519, in evaluate
+    self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, output.metrics)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_callback.py", line 538, in on_evaluate
+    return self.call_event("on_evaluate", args, state, control, metrics=metrics)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_callback.py", line 556, in call_event
+    result = getattr(callback, event)(
+  File "/var/lib/jenkins/train.py", line 212, in on_evaluate
+    ppl = math.exp(metrics["eval_loss"])
+NameError: name 'math' is not defined

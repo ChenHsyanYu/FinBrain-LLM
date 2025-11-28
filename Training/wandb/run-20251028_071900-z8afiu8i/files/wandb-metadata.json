@@ -1,0 +1,41 @@
+{
+  "os": "Linux-6.2.0-39-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.18",
+  "startedAt": "2025-10-28T07:19:00.762875Z",
+  "program": "/var/lib/jenkins/train.py",
+  "codePath": "train.py",
+  "codePathLocal": "train.py",
+  "email": "111306007@g.nccu.edu.tw",
+  "root": "/var/lib/jenkins",
+  "host": "training-6bcd6f5bf8-2kmmd",
+  "executable": "/opt/conda/envs/py_3.10/bin/python",
+  "cpu_count": 192,
+  "cpu_count_logical": 192,
+  "gpu": "AMD Instinct MI300X",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "3776106151936",
+      "used": "1189668257792"
+    }
+  },
+  "memory": {
+    "total": "2434765266944"
+  },
+  "gpu_amd": [
+    {
+      "id": "0",
+      "uniqueId": "0xabf875a5ffa7de0c",
+      "vbiosVersion": "113-M3000100-103",
+      "performanceLevel": "auto",
+      "maxPower": "750.0",
+      "series": "AMD Instinct MI300X",
+      "model": "0x74a1",
+      "vendor": "Advanced Micro Devices, Inc. [AMD/ATI]",
+      "sku": "M3000100",
+      "sclkRange": "500Mhz - 2100Mhz",
+      "mclkRange": "900Mhz - 1300Mhz"
+    }
+  ],
+  "writerId": "2u9pal7gv9q2goresz6izuhqtdblvd88"
+}

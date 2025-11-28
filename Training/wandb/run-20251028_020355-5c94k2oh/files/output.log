@@ -1,0 +1,40 @@
+Traceback (most recent call last):
+  File "/var/lib/jenkins/train.py", line 277, in <module>
+    start_training(model, tokenizer, dataset, training_args)
+  File "/var/lib/jenkins/train.py", line 252, in start_training
+    result = trainer.train()
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 4071, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/accelerate/accelerator.py", line 2740, in backward
+    loss.backward(**kwargs)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+Traceback (most recent call last):
+  File "/var/lib/jenkins/train.py", line 277, in <module>
+    start_training(model, tokenizer, dataset, training_args)
+  File "/var/lib/jenkins/train.py", line 252, in start_training
+    result = trainer.train()
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 4071, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/accelerate/accelerator.py", line 2740, in backward
+    loss.backward(**kwargs)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn

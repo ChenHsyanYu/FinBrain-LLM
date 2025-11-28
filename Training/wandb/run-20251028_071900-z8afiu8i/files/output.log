@@ -1,0 +1,29 @@
+{'loss': 1.1602, 'grad_norm': 0.1064453125, 'learning_rate': 5.6907312692636665e-05, 'epoch': 1.0}
+{'eval_loss': 0.6060222387313843, 'eval_runtime': 75.0759, 'eval_samples_per_second': 9.817, 'eval_steps_per_second': 9.817, 'epoch': 1.0}
+📈 Step 52: eval_loss=0.6060 | ppl=1.83
+{'loss': 0.5572, 'grad_norm': 0.10302734375, 'learning_rate': 4.4159379152495914e-05, 'epoch': 2.0}
+{'eval_loss': 0.5669013857841492, 'eval_runtime': 75.1454, 'eval_samples_per_second': 9.808, 'eval_steps_per_second': 9.808, 'epoch': 2.0}
+📈 Step 104: eval_loss=0.5669 | ppl=1.76
+{'loss': 0.5263, 'grad_norm': 0.1025390625, 'learning_rate': 2.6705323605259566e-05, 'epoch': 3.0}
+{'eval_loss': 0.5533668994903564, 'eval_runtime': 75.1415, 'eval_samples_per_second': 9.808, 'eval_steps_per_second': 9.808, 'epoch': 3.0}
+📈 Step 156: eval_loss=0.5534 | ppl=1.74
+{'loss': 0.5131, 'grad_norm': 0.08447265625, 'learning_rate': 1.1905852574242256e-05, 'epoch': 4.0}
+{'eval_loss': 0.549312949180603, 'eval_runtime': 75.2177, 'eval_samples_per_second': 9.798, 'eval_steps_per_second': 9.798, 'epoch': 4.0}
+📈 Step 208: eval_loss=0.5493 | ppl=1.73
+{'loss': 0.5094, 'grad_norm': 0.08349609375, 'learning_rate': 6.002183905050242e-06, 'epoch': 5.0}
+{'eval_loss': 0.5485929250717163, 'eval_runtime': 75.5333, 'eval_samples_per_second': 9.757, 'eval_steps_per_second': 9.757, 'epoch': 5.0}
+📈 Step 260: eval_loss=0.5486 | ppl=1.73
+{'train_runtime': 7421.71, 'train_samples_per_second': 8.939, 'train_steps_per_second': 0.035, 'train_loss': 0.6532250110919658, 'epoch': 5.0}
+✅ 訓練完成
+   最佳驗證 loss: 0.5486
+
+🧪 開始測試集評估...
+{'eval_loss': 0.5498003959655762, 'eval_runtime': 76.2714, 'eval_samples_per_second': 9.676, 'eval_steps_per_second': 9.676, 'epoch': 5.0}
+📈 Step 260: eval_loss=0.5498 | ppl=1.73
+📊 測試結果:
+   eval_loss: 0.5498
+   eval_runtime: 76.2714
+   eval_samples_per_second: 9.6760
+   eval_steps_per_second: 9.6760
+   epoch: 5.0000
+{'test_eval_loss': 0.5498003959655762, 'test_eval_runtime': 76.2714, 'test_eval_samples_per_second': 9.676, 'test_eval_steps_per_second': 9.676, 'test_epoch': 5.0, 'epoch': 5.0}

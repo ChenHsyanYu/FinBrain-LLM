@@ -1,0 +1,7 @@
+{"time":"2025-10-29T06:08:06.924797652Z","level":"INFO","msg":"stream: starting","core version":"0.22.2"}
+{"time":"2025-10-29T06:08:07.506202295Z","level":"INFO","msg":"stream: created new stream","id":"z8afiu8i"}
+{"time":"2025-10-29T06:08:07.506292684Z","level":"INFO","msg":"handler: started","stream_id":"z8afiu8i"}
+{"time":"2025-10-29T06:08:07.506409644Z","level":"INFO","msg":"stream: started","id":"z8afiu8i"}
+{"time":"2025-10-29T06:08:07.506446344Z","level":"INFO","msg":"writer: started","stream_id":"z8afiu8i"}
+{"time":"2025-10-29T06:08:07.506446654Z","level":"INFO","msg":"sender: started","stream_id":"z8afiu8i"}
+{"time":"2025-10-29T14:03:08.185085406Z","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/chsyu-national-chengchi-university/fin_brain_reset/z8afiu8i/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}

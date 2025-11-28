@@ -1,0 +1,49 @@
+{'loss': 1.3786, 'grad_norm': 0.109375, 'learning_rate': 5.965947842396981e-05, 'epoch': 1.0}
+Traceback (most recent call last):
+  File "/var/lib/jenkins/train.py", line 274, in <module>
+    start_training(model, tokenizer, dataset, training_args)
+  File "/var/lib/jenkins/train.py", line 249, in start_training
+    result = trainer.train()
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2790, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 3221, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 3170, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 4489, in evaluate
+    output = eval_loop(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 4712, in evaluation_loop
+    all_preds.add(logits)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 315, in add
+    self.tensors = nested_concat(self.tensors, tensors, padding_index=self.padding_index)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 131, in nested_concat
+    return torch_pad_and_concatenate(tensors, new_tensors, padding_index=padding_index)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 89, in torch_pad_and_concatenate
+    return torch.cat((tensor1, tensor2), dim=0)
+torch.OutOfMemoryError: HIP out of memory. Tried to allocate 68.94 GiB. GPU 0 has a total capacity of 191.98 GiB of which 68.28 GiB is free. Of the allocated memory 85.64 GiB is allocated by PyTorch, and 36.56 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_HIP_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/var/lib/jenkins/train.py", line 274, in <module>
+    start_training(model, tokenizer, dataset, training_args)
+  File "/var/lib/jenkins/train.py", line 249, in start_training
+    result = trainer.train()
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 2790, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 3221, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 3170, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 4489, in evaluate
+    output = eval_loop(
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer.py", line 4712, in evaluation_loop
+    all_preds.add(logits)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 315, in add
+    self.tensors = nested_concat(self.tensors, tensors, padding_index=self.padding_index)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 131, in nested_concat
+    return torch_pad_and_concatenate(tensors, new_tensors, padding_index=padding_index)
+  File "/opt/conda/envs/py_3.10/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 89, in torch_pad_and_concatenate
+    return torch.cat((tensor1, tensor2), dim=0)
+torch.OutOfMemoryError: HIP out of memory. Tried to allocate 68.94 GiB. GPU 0 has a total capacity of 191.98 GiB of which 68.28 GiB is free. Of the allocated memory 85.64 GiB is allocated by PyTorch, and 36.56 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_HIP_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

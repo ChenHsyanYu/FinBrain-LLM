@@ -1,0 +1,16 @@
+{'loss': 0.6226, 'grad_norm': 0.20703125, 'learning_rate': 4.019759994366194e-05, 'epoch': 2.0}
+{'eval_loss': 0.618389904499054, 'eval_runtime': 464.2693, 'eval_samples_per_second': 7.347, 'eval_steps_per_second': 7.347, 'epoch': 2.0}
+📈 Step 508: eval_loss=0.6184 | ppl=1.86
+{'loss': 0.6013, 'grad_norm': 0.2314453125, 'learning_rate': 2.1377178366776514e-05, 'epoch': 3.0}
+{'eval_loss': 0.6135841608047485, 'eval_runtime': 464.0015, 'eval_samples_per_second': 7.351, 'eval_steps_per_second': 7.351, 'epoch': 3.0}
+📈 Step 762: eval_loss=0.6136 | ppl=1.85
+{'loss': 0.5946, 'grad_norm': 0.2158203125, 'learning_rate': 5.952990453873698e-06, 'epoch': 4.0}
+{'eval_loss': 0.6128388047218323, 'eval_runtime': 462.9885, 'eval_samples_per_second': 7.367, 'eval_steps_per_second': 7.367, 'epoch': 4.0}
+📈 Step 1016: eval_loss=0.6128 | ppl=1.85
+{'loss': 0.594, 'grad_norm': 0.244140625, 'learning_rate': 9.47481523771998e-11, 'epoch': 5.0}
+{'eval_loss': 0.6128251552581787, 'eval_runtime': 463.3343, 'eval_samples_per_second': 7.362, 'eval_steps_per_second': 7.362, 'epoch': 5.0}
+📈 Step 1270: eval_loss=0.6128 | ppl=1.85
+{'train_runtime': 28495.1462, 'train_samples_per_second': 11.37, 'train_steps_per_second': 0.045, 'train_loss': 0.4795746450349102, 'epoch': 5.0}
+✅ 訓練完成
+   最佳驗證 loss: 0.5486
+📁 模型已保存完畢。

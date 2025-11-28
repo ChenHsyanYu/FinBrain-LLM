@@ -1,0 +1,27 @@
+# 環境變數和密鑰
+.env
+*.env
+
+# 模型檔案和訓練輸出
+Training/models/
+*.safetensors
+*.pt
+*.bin
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 其他
+.DS_Store
+*.log

@@ -2,6 +2,11 @@
 .env
 *.env
 
+# Windows 系統檔案
+nul
+Thumbs.db
+Desktop.ini
+
 # 模型檔案和訓練輸出
 Training/models/
 *.safetensors

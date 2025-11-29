@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exp5_pure_finance (c3agltgm)</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+            border-bottom: 2px solid #4ecdc4;
+            padding-bottom: 8px;
+        }
+        .info-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .info-item {
+            margin: 8px 0;
+            padding: 5px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #666;
+            display: inline-block;
+            min-width: 150px;
+        }
+        .chart-container {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #fafafa;
+            border-radius: 5px;
+            min-height: 400px;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            clear: both;
+        }
+        #charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        @media (max-width: 1200px) {
+            #charts {
+                grid-template-columns: 1fr;
+            }
+        }
+        .summary-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .summary-card .key {
+            font-weight: bold;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .summary-card .value {
+            font-size: 20px;
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>exp5_pure_finance</h1>
+        <div class="info-section">
+            <div class="info-item">
+                <span class="info-label">Run ID:</span>
+                <span>c3agltgm</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">State:</span>
+                <span>finished</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Created:</span>
+                <span>2025-11-08T15:06:35Z</span>
+            </div>
+        </div>
+
+        <h2>Summary Metrics</h2>
+        <div class="summary-grid" id="summary-grid"></div>
+
+        <h2>Training History</h2>
+        <div id="charts"></div>
+
+        <h2>Configuration</h2>
+        <pre>{
+  "bf16": true,
+  "fp16": false,
+  "fsdp": [],
+  "seed": 42,
+  "tf32": null,
+  "debug": [],
+  "dtype": "bfloat16",
+  "optim": "adamw_torch",
+  "top_k": 50,
+  "top_p": 1,
+  "prefix": null,
+  "do_eval": true,
+  "no_cuda": false,
+  "project": "huggingface",
+  "use_cpu": false,
+  "do_train": false,
+  "head_dim": 128,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "mlp_bias": false,
+  "run_name": "exp5_pure_finance",
+  "adafactor": false,
+  "data_seed": null,
+  "deepspeed": null,
+  "do_sample": false,
+  "hub_token": "<HUB_TOKEN>",
+  "log_level": "passive",
+  "max_steps": -1,
+  "num_beams": 1,
+  "ray_scope": "last",
+  "report_to": [
+    "wandb"
+  ],
+  "typical_p": 1,
+  "use_cache": false,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.95,
+  "do_predict": false,
+  "eval_delay": 0,
+  "eval_steps": null,
+  "hidden_act": "silu",
+  "is_decoder": false,
+  "local_rank": 0,
+  "max_length": 20,
+  "min_length": 0,
+  "model_type": "llama",
+  "optim_args": null,
+  "output_dir": "./models/exp5_pure_finance",
+  "past_index": -1,
+  "rope_theta": 500000,
+  "save_steps": 500,
+  "vocab_size": 188256,
+  "ddp_backend": null,
+  "ddp_timeout": 1800,
+  "fsdp_config": {
+    "xla": false,
+    "xla_fsdp_v2": false,
+    "min_num_params": 0,
+    "xla_fsdp_grad_ckpt": false
+  },
+  "hidden_size": 4096,
+  "label_names": null,
+  "logging_dir": "./logs/exp5_pure_finance",
+  "push_to_hub": false,
+  "return_dict": true,
+  "temperature": 1,
+  "torchdynamo": null,
+  "torchscript": false,
+  "adam_epsilon": 1e-08,
+  "bos_token_id": 128000,
+  "disable_tqdm": true,
+  "eos_token_id": 128001,
+  "fp16_backend": "auto",
+  "hub_model_id": null,
+  "hub_revision": null,
+  "hub_strategy": "every_save",
+  "pad_token_id": null,
+  "problem_type": null,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8,
+    "rope_type": "llama3",
+    "low_freq_factor": 1,
+    "high_freq_factor": 4,
+    "original_max_position_embeddings": 8192
+  },
+  "sep_token_id": null,
+  "use_bfloat16": false,
+  "warmup_ratio": 0,
+  "warmup_steps": 20,
+  "weight_decay": 0.1,
+  "_name_or_path": "taide/Llama-3.1-TAIDE-LX-8B-Chat",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "bad_words_ids": null,
+  "eval_on_start": false,
+  "eval_strategy": "epoch",
+  "jit_mode_eval": false,
+  "learning_rate": 6e-05,
+  "logging_steps": 500,
+  "max_grad_norm": 1,
+  "mp_parameters": "",
+  "output_scores": false,
+  "save_strategy": "epoch",
+  "torch_compile": false,
+  "tpu_num_cores": null,
+  "attention_bias": false,
+  "bf16_full_eval": false,
+  "early_stopping": false,
+  "fp16_full_eval": false,
+  "fp16_opt_level": "O1",
+  "length_penalty": 1,
+  "pretraining_tp": 1,
+  "tf_legacy_loss": false,
+  "use_mps_device": false,
+  "finetuning_task": null,
+  "group_by_length": false,
+  "hub_always_push": false,
+  "num_beam_groups": 1,
+  "save_only_model": false,
+  "suppress_tokens": null,
+  "tokenizer_class": null,
+  "full_determinism": false,
+  "hub_private_repo": null,
+  "ignore_data_skip": false,
+  "log_on_each_node": true,
+  "logging_strategy": "epoch",
+  "num_train_epochs": 10,
+  "save_safetensors": true,
+  "save_total_limit": null,
+  "trackio_space_id": "trackio",
+  "use_liger_kernel": false,
+  "attention_dropout": 0,
+  "ddp_bucket_cap_mb": null,
+  "diversity_penalty": 0,
+  "greater_is_better": false,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "log_level_replica": "warning",
+  "lr_scheduler_type": "cosine_with_restarts",
+  "num_hidden_layers": 32,
+  "output_attentions": false,
+  "push_to_hub_token": "<PUSH_TO_HUB_TOKEN>",
+  "save_on_each_node": false,
+  "tpu_metrics_debug": false,
+  "accelerator_config": {
+    "even_batches": true,
+    "non_blocking": false,
+    "split_batches": false,
+    "dispatch_batches": null,
+    "use_seedable_sampler": true,
+    "gradient_accumulation_kwargs": null
+  },
+  "batch_eval_metrics": false,
+  "is_encoder_decoder": false,
+  "length_column_name": "length",
+  "logging_first_step": false,
+  "parallelism_config": null,
+  "repetition_penalty": 1,
+  "torch_compile_mode": null,
+  "add_cross_attention": false,
+  "forced_bos_token_id": null,
+  "forced_eos_token_id": null,
+  "fsdp_min_num_params": 0,
+  "include_for_metrics": [],
+  "liger_kernel_config": null,
+  "lr_scheduler_kwargs": {
+    "num_cycles": 2
+  },
+  "neftune_noise_alpha": null,
+  "num_attention_heads": 32,
+  "num_key_value_heads": 8,
+  "skip_memory_metrics": true,
+  "tie_encoder_decoder": false,
+  "tie_word_embeddings": false,
+  "auto_find_batch_size": false,
+  "dataloader_drop_last": false,
+  "model/num_parameters": 8521781248,
+  "no_repeat_ngram_size": 0,
+  "num_return_sequences": 1,
+  "optim_target_modules": null,
+  "output_hidden_states": false,
+  "overwrite_output_dir": false,
+  "prediction_loss_only": true,
+  "push_to_hub_model_id": null,
+  "task_specific_params": null,
+  "transformers_version": "4.57.1",
+  "begin_suppress_tokens": null,
+  "dataloader_pin_memory": true,
+  "ddp_broadcast_buffers": null,
+  "metric_for_best_model": "eval_loss",
+  "remove_invalid_values": false,
+  "remove_unused_columns": false,
+  "torch_compile_backend": null,
+  "dataloader_num_workers": 0,
+  "decoder_start_token_id": null,
+  "eval_do_concat_batches": true,
+  "eval_use_gather_object": false,
+  "gradient_checkpointing": false,
+  "half_precision_backend": "auto",
+  "label_smoothing_factor": 0,
+  "load_best_model_at_end": true,
+  "logging_nan_inf_filter": true,
+  "resume_from_checkpoint": null,
+  "chunk_size_feed_forward": 0,
+  "eval_accumulation_steps": 1,
+  "max_position_embeddings": 131072,
+  "per_gpu_eval_batch_size": null,
+  "return_dict_in_generate": false,
+  "torch_empty_cache_steps": null,
+  "per_gpu_train_batch_size": null,
+  "push_to_hub_organization": null,
+  "include_tokens_per_second": false,
+  "dataloader_prefetch_factor": null,
+  "ddp_find_unused_parameters": null,
+  "include_inputs_for_metrics": false,
+  "per_device_eval_batch_size": 1,
+  "use_legacy_prediction_loop": false,
+  "cross_attention_hidden_size": null,
+  "gradient_accumulation_steps": 16,
+  "per_device_train_batch_size": 16,
+  "encoder_no_repeat_ngram_size": 0,
+  "average_tokens_across_devices": true,
+  "dataloader_persistent_workers": false,
+  "gradient_checkpointing_kwargs": null,
+  "include_num_input_tokens_seen": "no",
+  "exponential_decay_length_penalty": null,
+  "fsdp_transformer_layer_cls_to_wrap": null,
+  "restore_callback_states_from_checkpoint": false
+}</pre>
+    </div>
+
+    <script>
+        // 數據
+        const historyData = [{"_step": 0, "_runtime": 1370.686776128, "train/grad_norm": 0.111328125, "eval/samples_per_second": null, "train/loss": 1.293, "train/epoch": 1, "eval/runtime": null, "train/learning_rate": 5.775231620503374e-05, "eval/loss": null, "_timestamp": 1762615766.4510171, "train/global_step": 52, "eval/steps_per_second": null}, {"_step": 1, "_runtime": 1521.275377836, "train/grad_norm": null, "eval/samples_per_second": 9.795, "train/loss": null, "train/epoch": 1, "eval/runtime": 150.5863, "train/learning_rate": null, "eval/loss": 0.6084445118904114, "_timestamp": 1762615917.039594, "train/global_step": 52, "eval/steps_per_second": 9.795}, {"_step": 2, "_runtime": 2926.328856401, "train/grad_norm": 0.10302734375, "eval/samples_per_second": null, "train/loss": 0.5601, "train/epoch": 2, "eval/runtime": null, "train/learning_rate": 4.5108696049072826e-05, "eval/loss": null, "_timestamp": 1762617322.0930588, "train/global_step": 104, "eval/steps_per_second": null}, {"_step": 3, "_runtime": 3077.125166866, "train/grad_norm": null, "eval/samples_per_second": 9.782, "train/loss": null, "train/epoch": 2, "eval/runtime": 150.7937, "train/learning_rate": null, "eval/loss": 0.5677434206008911, "_timestamp": 1762617472.889518, "train/global_step": 104, "eval/steps_per_second": 9.782}, {"_step": 4, "_runtime": 4480.170032456, "train/grad_norm": 0.10107421875, "eval/samples_per_second": null, "train/loss": 0.5278, "train/epoch": 3, "eval/runtime": null, "train/learning_rate": 2.624000299307087e-05, "eval/loss": null, "_timestamp": 1762618875.9343007, "train/global_step": 156, "eval/steps_per_second": null}, {"_step": 5, "_runtime": 4630.953196327, "train/grad_norm": null, "eval/samples_per_second": 9.782, "train/loss": null, "train/epoch": 3, "eval/runtime": 150.7805, "train/learning_rate": null, "eval/loss": 0.5544045567512512, "_timestamp": 1762619026.7174568, "train/global_step": 156, "eval/steps_per_second": 9.782}, {"_step": 6, "_runtime": 6033.404234101, "train/grad_norm": 0.08349609375, "eval/samples_per_second": null, "train/loss": 0.5144, "train/epoch": 4, "eval/runtime": null, "train/learning_rate": 8.920500906034529e-06, "eval/loss": null, "_timestamp": 1762620429.1683993, "train/global_step": 208, "eval/steps_per_second": null}, {"_step": 7, "_runtime": 6184.479210108, "train/grad_norm": null, "eval/samples_per_second": 9.764, "train/loss": null, "train/epoch": 4, "eval/runtime": 151.0721, "train/learning_rate": null, "eval/loss": 0.5510210990905762, "_timestamp": 1762620580.243209, "train/global_step": 208, "eval/steps_per_second": 9.764}, {"_step": 8, "_runtime": 7586.46853252, "train/grad_norm": 0.08349609375, "eval/samples_per_second": null, "train/loss": 0.5114, "train/epoch": 5, "eval/runtime": null, "train/learning_rate": 2.861572291004644e-07, "eval/loss": null, "_timestamp": 1762621982.2326436, "train/global_step": 260, "eval/steps_per_second": null}, {"_step": 9, "_runtime": 7737.213504778, "train/grad_norm": null, "eval/samples_per_second": 9.785, "train/loss": null, "train/epoch": 5, "eval/runtime": 150.7424, "train/learning_rate": null, "eval/loss": 0.5507773756980896, "_timestamp": 1762622132.977777, "train/global_step": 260, "eval/steps_per_second": 9.785}, {"_step": 10, "_runtime": 9138.905738374, "train/grad_norm": 0.103515625, "eval/samples_per_second": null, "train/loss": 0.5113, "train/epoch": 6, "eval/runtime": null, "train/learning_rate": 5.6105512640085776e-05, "eval/loss": null, "_timestamp": 1762623534.6697087, "train/global_step": 312, "eval/steps_per_second": null}, {"_step": 11, "_runtime": 9289.662798071, "train/grad_norm": null, "eval/samples_per_second": 9.784, "train/loss": null, "train/epoch": 6, "eval/runtime": 150.7544, "train/learning_rate": null, "eval/loss": 0.5408426523208618, "_timestamp": 1762623685.426933, "train/global_step": 312, "eval/steps_per_second": 9.784}, {"_step": 12, "_runtime": 10692.169347072, "train/grad_norm": 0.09423828125, "eval/samples_per_second": null, "train/loss": 0.4897, "train/epoch": 7, "eval/runtime": null, "train/learning_rate": 4.1741210005116066e-05, "eval/loss": null, "_timestamp": 1762625087.9334757, "train/global_step": 364, "eval/steps_per_second": null}, {"_step": 13, "_runtime": 10842.962565881, "train/grad_norm": null, "eval/samples_per_second": 9.782, "train/loss": null, "train/epoch": 7, "eval/runtime": 150.7903, "train/learning_rate": null, "eval/loss": 0.5308857560157776, "_timestamp": 1762625238.7266505, "train/global_step": 364, "eval/steps_per_second": 9.782}, {"_step": 14, "_runtime": 12244.969260168, "train/grad_norm": 0.10888671875, "eval/samples_per_second": null, "train/loss": 0.4747, "train/epoch": 8, "eval/runtime": null, "train/learning_rate": 2.2539303385054355e-05, "eval/loss": null, "_timestamp": 1762626640.73322, "train/global_step": 416, "eval/steps_per_second": null}, {"_step": 15, "_runtime": 12395.82044482, "train/grad_norm": null, "eval/samples_per_second": 9.778, "train/loss": null, "train/epoch": 8, "eval/runtime": 150.8482, "train/learning_rate": null, "eval/loss": 0.5265167951583862, "_timestamp": 1762626791.5845914, "train/global_step": 416, "eval/steps_per_second": 9.778}, {"_step": 16, "_runtime": 13797.718924089, "train/grad_norm": 0.0888671875, "eval/samples_per_second": null, "train/loss": 0.4677, "train/epoch": 9, "eval/runtime": null, "train/learning_rate": 6.411347035901432e-06, "eval/loss": null, "_timestamp": 1762628193.4828866, "train/global_step": 468, "eval/steps_per_second": null}, {"_step": 17, "_runtime": 13948.589753276, "train/grad_norm": null, "eval/samples_per_second": 9.777, "train/loss": null, "train/epoch": 9, "eval/runtime": 150.8683, "train/learning_rate": null, "eval/loss": 0.5256072282791138, "_timestamp": 1762628344.3539102, "train/global_step": 468, "eval/steps_per_second": 9.777}, {"_step": 18, "_runtime": 15353.202907537, "train/grad_norm": 0.091796875, "eval/samples_per_second": null, "train/loss": 0.4662, "train/epoch": 10, "eval/runtime": null, "train/learning_rate": 2.368673885516648e-09, "eval/loss": null, "_timestamp": 1762629748.966901, "train/global_step": 520, "eval/steps_per_second": null}, {"_step": 19, "_runtime": 15504.048070166, "train/grad_norm": null, "eval/samples_per_second": 9.778, "train/loss": null, "train/epoch": 10, "eval/runtime": 150.8424, "train/learning_rate": null, "eval/loss": 0.5255569815635681, "_timestamp": 1762629899.811983, "train/global_step": 520, "eval/steps_per_second": 9.778}, {"_step": 20, "_runtime": 15563.601508943, "train/grad_norm": null, "eval/samples_per_second": null, "train/loss": null, "train/epoch": 10, "eval/runtime": null, "train/learning_rate": null, "eval/loss": null, "_timestamp": 1762629959.3663764, "train/global_step": 520, "eval/steps_per_second": null}];
+        const summary = {"_runtime": 15607, "_step": 20, "_timestamp": 1762629959.3663764, "_wandb": "{'runtime': 15607}", "eval/loss": 0.5255569815635681, "eval/runtime": 150.8424, "eval/samples_per_second": 9.778, "eval/steps_per_second": 9.778, "total_flos": 12636498029948436000, "train/epoch": 10, "train/global_step": 520, "train/grad_norm": 0.091796875, "train/learning_rate": 2.368673885516648e-09, "train/loss": 0.4662, "train_loss": 0.5816448064950797, "train_runtime": 15565.4606, "train_samples_per_second": 8.524, "train_steps_per_second": 0.033};
+
+        // 渲染 Summary Cards
+        const summaryGrid = document.getElementById('summary-grid');
+        Object.entries(summary).forEach(([key, value]) => {
+            if (typeof value === 'number' || typeof value === 'string') {
+                const card = document.createElement('div');
+                card.className = 'summary-card';
+                card.innerHTML = `
+                    <div class="key">${key}</div>
+                    <div class="value">${typeof value === 'number' ? value.toFixed(4) : value}</div>
+                `;
+                summaryGrid.appendChild(card);
+            }
+        });
+
+        // 獲取所有數值列
+        const columns = historyData.length > 0 ? Object.keys(historyData[0]) : [];
+        const numericColumns = columns.filter(col => {
+            return historyData.some(row => typeof row[col] === 'number');
+        }).filter(col => col !== '_step' && col !== '_runtime' && col !== '_timestamp');
+
+        // 按指標類型分組
+        const metricGroups = {};
+        numericColumns.forEach(col => {
+            // 提取基礎指標名稱（去掉 train_, eval_, test_ 等前綴）
+            let baseMetric = col;
+            let prefix = '';
+
+            if (col.startsWith('train/')) {
+                prefix = 'train';
+                baseMetric = col.substring(6);
+            } else if (col.startsWith('eval/')) {
+                prefix = 'eval';
+                baseMetric = col.substring(5);
+            } else if (col.startsWith('test/')) {
+                prefix = 'test';
+                baseMetric = col.substring(5);
+            } else if (col.startsWith('train_')) {
+                prefix = 'train';
+                baseMetric = col.substring(6);
+            } else if (col.startsWith('eval_')) {
+                prefix = 'eval';
+                baseMetric = col.substring(5);
+            } else if (col.startsWith('test_')) {
+                prefix = 'test';
+                baseMetric = col.substring(5);
+            }
+
+            if (!metricGroups[baseMetric]) {
+                metricGroups[baseMetric] = [];
+            }
+            metricGroups[baseMetric].push({name: col, prefix: prefix});
+        });
+
+        // 為每個指標組創建圖表
+        const chartsDiv = document.getElementById('charts');
+        Object.entries(metricGroups).forEach(([baseMetric, metrics]) => {
+            const chartDiv = document.createElement('div');
+            chartDiv.className = 'chart-container';
+            chartDiv.id = 'chart-' + baseMetric.replace(/[^a-zA-Z0-9]/g, '_');
+            chartsDiv.appendChild(chartDiv);
+
+            const traces = [];
+            metrics.forEach(metric => {
+                // 優先使用 epoch 作為 X 軸，如果沒有則使用 _step
+                const x = historyData.map((row, idx) => {
+                    if (row['train/epoch'] !== undefined && row['train/epoch'] !== null) return row['train/epoch'];
+                    if (row['epoch'] !== undefined && row['epoch'] !== null) return row['epoch'];
+                    if (row['_step'] !== undefined) return row['_step'];
+                    return idx;
+                });
+                const y = historyData.map(row => row[metric.name]);
+
+                const trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines+markers',
+                    name: metric.name,
+                    line: {
+                        width: 2
+                    },
+                    marker: {
+                        size: 4
+                    },
+                    connectgaps: true
+                };
+                traces.push(trace);
+            });
+
+            // 決定 X 軸標籤
+            const hasEpoch = historyData.some(row => row['train/epoch'] !== undefined || row['epoch'] !== undefined);
+            const layout = {
+                title: baseMetric,
+                xaxis: {
+                    title: hasEpoch ? 'Epoch' : 'Step',
+                    gridcolor: '#e0e0e0'
+                },
+                yaxis: {
+                    title: 'Value',
+                    gridcolor: '#e0e0e0'
+                },
+                plot_bgcolor: '#ffffff',
+                paper_bgcolor: '#fafafa',
+                margin: {
+                    l: 60,
+                    r: 30,
+                    t: 50,
+                    b: 50
+                },
+                showlegend: true,
+                legend: {
+                    x: 1.05,
+                    y: 1
+                }
+            };
+
+            Plotly.newPlot('chart-' + baseMetric.replace(/[^a-zA-Z0-9]/g, '_'), traces, layout, {responsive: true});
+        });
+
+        // 如果沒有分組的指標，單獨顯示
+        if (Object.keys(metricGroups).length === 0 && numericColumns.length > 0) {
+            const hasEpoch = historyData.some(row => row['train/epoch'] !== undefined || row['epoch'] !== undefined);
+
+            numericColumns.forEach(col => {
+                // 優先使用 epoch 作為 X 軸，如果沒有則使用 _step
+                const x = historyData.map((row, idx) => {
+                    if (row['train/epoch'] !== undefined && row['train/epoch'] !== null) return row['train/epoch'];
+                    if (row['epoch'] !== undefined && row['epoch'] !== null) return row['epoch'];
+                    if (row['_step'] !== undefined) return row['_step'];
+                    return idx;
+                });
+                const y = historyData.map(row => row[col]);
+
+                const chartDiv = document.createElement('div');
+                chartDiv.className = 'chart-container';
+                chartDiv.id = 'chart-' + col;
+                chartsDiv.appendChild(chartDiv);
+
+                const trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines+markers',
+                    name: col,
+                    line: {
+                        width: 2
+                    },
+                    marker: {
+                        size: 4
+                    },
+                    connectgaps: true
+                };
+
+                const layout = {
+                    title: col,
+                    xaxis: {
+                        title: hasEpoch ? 'Epoch' : 'Step',
+                        gridcolor: '#e0e0e0'
+                    },
+                    yaxis: {
+                        title: 'Value',
+                        gridcolor: '#e0e0e0'
+                    },
+                    plot_bgcolor: '#ffffff',
+                    paper_bgcolor: '#fafafa',
+                    margin: {
+                        l: 60,
+                        r: 30,
+                        t: 50,
+                        b: 50
+                    }
+                };
+
+                Plotly.newPlot('chart-' + col, [trace], layout, {responsive: true});
+            });
+        }
+    </script>
+</body>
+</html>

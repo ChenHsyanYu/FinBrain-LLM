@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exp9 (9okychpm)</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+            border-bottom: 2px solid #4ecdc4;
+            padding-bottom: 8px;
+        }
+        .info-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .info-item {
+            margin: 8px 0;
+            padding: 5px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #666;
+            display: inline-block;
+            min-width: 150px;
+        }
+        .chart-container {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #fafafa;
+            border-radius: 5px;
+            min-height: 400px;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            clear: both;
+        }
+        #charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        @media (max-width: 1200px) {
+            #charts {
+                grid-template-columns: 1fr;
+            }
+        }
+        .summary-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .summary-card .key {
+            font-weight: bold;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .summary-card .value {
+            font-size: 20px;
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>exp9</h1>
+        <div class="info-section">
+            <div class="info-item">
+                <span class="info-label">Run ID:</span>
+                <span>9okychpm</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">State:</span>
+                <span>killed</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Created:</span>
+                <span>2025-09-28T07:44:23Z</span>
+            </div>
+        </div>
+
+        <h2>Summary Metrics</h2>
+        <div class="summary-grid" id="summary-grid"></div>
+
+        <h2>Training History</h2>
+        <div id="charts"></div>
+
+        <h2>Configuration</h2>
+        <pre>{
+  "bf16": true,
+  "fp16": false,
+  "fsdp": [],
+  "seed": 42,
+  "tf32": null,
+  "debug": [],
+  "dtype": "bfloat16",
+  "optim": "adamw_torch",
+  "top_k": 50,
+  "top_p": 1,
+  "prefix": null,
+  "do_eval": false,
+  "no_cuda": false,
+  "use_cpu": false,
+  "do_train": false,
+  "head_dim": 128,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "mlp_bias": false,
+  "run_name": "exp9",
+  "use_ipex": false,
+  "adafactor": false,
+  "data_seed": null,
+  "deepspeed": null,
+  "do_sample": false,
+  "hub_token": "<HUB_TOKEN>",
+  "log_level": "passive",
+  "max_steps": -1,
+  "num_beams": 1,
+  "ray_scope": "last",
+  "report_to": [
+    "wandb"
+  ],
+  "typical_p": 1,
+  "use_cache": false,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.95,
+  "do_predict": false,
+  "eval_delay": 0,
+  "eval_steps": null,
+  "hidden_act": "silu",
+  "is_decoder": false,
+  "local_rank": 0,
+  "max_length": 20,
+  "min_length": 0,
+  "model_type": "llama",
+  "optim_args": null,
+  "output_dir": "./models/exp9",
+  "past_index": -1,
+  "rope_theta": 500000,
+  "save_steps": 50,
+  "vocab_size": 188256,
+  "ddp_backend": null,
+  "ddp_timeout": 1800,
+  "fsdp_config": {
+    "xla": false,
+    "xla_fsdp_v2": false,
+    "min_num_params": 0,
+    "xla_fsdp_grad_ckpt": false
+  },
+  "hidden_size": 4096,
+  "label_names": null,
+  "logging_dir": "./logs/exp9",
+  "push_to_hub": false,
+  "return_dict": true,
+  "temperature": 1,
+  "torchdynamo": null,
+  "torchscript": false,
+  "adam_epsilon": 1e-08,
+  "bos_token_id": 128000,
+  "disable_tqdm": true,
+  "eos_token_id": 128001,
+  "fp16_backend": "auto",
+  "hub_model_id": null,
+  "hub_revision": null,
+  "hub_strategy": "every_save",
+  "pad_token_id": null,
+  "problem_type": null,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8,
+    "rope_type": "llama3",
+    "low_freq_factor": 1,
+    "high_freq_factor": 4,
+    "original_max_position_embeddings": 8192
+  },
+  "sep_token_id": null,
+  "use_bfloat16": false,
+  "warmup_ratio": 0.05,
+  "warmup_steps": 0,
+  "weight_decay": 0.1,
+  "_name_or_path": "taide/Llama-3.1-TAIDE-LX-8B-Chat",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "bad_words_ids": null,
+  "eval_on_start": false,
+  "eval_strategy": "no",
+  "jit_mode_eval": false,
+  "learning_rate": 6e-05,
+  "logging_steps": 1,
+  "max_grad_norm": 1,
+  "mp_parameters": "",
+  "output_scores": false,
+  "save_strategy": "steps",
+  "torch_compile": false,
+  "tpu_num_cores": null,
+  "attention_bias": false,
+  "bf16_full_eval": false,
+  "early_stopping": false,
+  "fp16_full_eval": false,
+  "fp16_opt_level": "O1",
+  "length_penalty": 1,
+  "pretraining_tp": 1,
+  "tf_legacy_loss": false,
+  "use_mps_device": false,
+  "finetuning_task": null,
+  "group_by_length": false,
+  "hub_always_push": false,
+  "num_beam_groups": 1,
+  "save_only_model": false,
+  "suppress_tokens": null,
+  "tokenizer_class": null,
+  "full_determinism": false,
+  "hub_private_repo": null,
+  "ignore_data_skip": false,
+  "log_on_each_node": true,
+  "logging_strategy": "steps",
+  "num_train_epochs": 3,
+  "save_safetensors": true,
+  "save_total_limit": 2,
+  "use_liger_kernel": false,
+  "attention_dropout": 0,
+  "ddp_bucket_cap_mb": null,
+  "diversity_penalty": 0,
+  "greater_is_better": null,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "log_level_replica": "warning",
+  "lr_scheduler_type": "cosine",
+  "num_hidden_layers": 32,
+  "output_attentions": false,
+  "push_to_hub_token": "<PUSH_TO_HUB_TOKEN>",
+  "save_on_each_node": false,
+  "tpu_metrics_debug": false,
+  "accelerator_config": {
+    "even_batches": true,
+    "non_blocking": false,
+    "split_batches": false,
+    "dispatch_batches": null,
+    "use_seedable_sampler": true,
+    "gradient_accumulation_kwargs": null
+  },
+  "batch_eval_metrics": false,
+  "is_encoder_decoder": false,
+  "length_column_name": "length",
+  "logging_first_step": false,
+  "parallelism_config": null,
+  "repetition_penalty": 1,
+  "torch_compile_mode": null,
+  "add_cross_attention": false,
+  "forced_bos_token_id": null,
+  "forced_eos_token_id": null,
+  "fsdp_min_num_params": 0,
+  "include_for_metrics": [],
+  "liger_kernel_config": null,
+  "neftune_noise_alpha": null,
+  "num_attention_heads": 32,
+  "num_key_value_heads": 8,
+  "skip_memory_metrics": true,
+  "tie_encoder_decoder": false,
+  "tie_word_embeddings": false,
+  "auto_find_batch_size": false,
+  "dataloader_drop_last": false,
+  "model/num_parameters": 8521781248,
+  "no_repeat_ngram_size": 0,
+  "num_return_sequences": 1,
+  "optim_target_modules": null,
+  "output_hidden_states": false,
+  "overwrite_output_dir": false,
+  "prediction_loss_only": false,
+  "push_to_hub_model_id": null,
+  "task_specific_params": null,
+  "transformers_version": "4.56.1",
+  "begin_suppress_tokens": null,
+  "dataloader_pin_memory": false,
+  "ddp_broadcast_buffers": null,
+  "metric_for_best_model": null,
+  "remove_invalid_values": false,
+  "remove_unused_columns": false,
+  "torch_compile_backend": null,
+  "dataloader_num_workers": 0,
+  "decoder_start_token_id": null,
+  "eval_do_concat_batches": true,
+  "eval_use_gather_object": false,
+  "gradient_checkpointing": false,
+  "half_precision_backend": "auto",
+  "label_smoothing_factor": 0,
+  "load_best_model_at_end": false,
+  "logging_nan_inf_filter": true,
+  "resume_from_checkpoint": null,
+  "chunk_size_feed_forward": 0,
+  "eval_accumulation_steps": null,
+  "max_position_embeddings": 131072,
+  "per_gpu_eval_batch_size": null,
+  "return_dict_in_generate": false,
+  "torch_empty_cache_steps": null,
+  "per_gpu_train_batch_size": null,
+  "push_to_hub_organization": null,
+  "include_tokens_per_second": false,
+  "dataloader_prefetch_factor": null,
+  "ddp_find_unused_parameters": null,
+  "include_inputs_for_metrics": false,
+  "per_device_eval_batch_size": 8,
+  "use_legacy_prediction_loop": false,
+  "cross_attention_hidden_size": null,
+  "gradient_accumulation_steps": 1,
+  "per_device_train_batch_size": 8,
+  "encoder_no_repeat_ngram_size": 0,
+  "average_tokens_across_devices": false,
+  "dataloader_persistent_workers": false,
+  "gradient_checkpointing_kwargs": null,
+  "include_num_input_tokens_seen": false,
+  "exponential_decay_length_penalty": null,
+  "fsdp_transformer_layer_cls_to_wrap": null,
+  "restore_callback_states_from_checkpoint": false
+}</pre>
+    </div>
+
+    <script>
+        // 數據
+        const historyData = [{"train/learning_rate": 0, "_step": 0, "_runtime": 7.48488201, "_timestamp": 1759045470.811049, "train/loss": 3.4454, "train/epoch": 0.001430615164520744, "train/grad_norm": 30.25, "train/global_step": 1}, {"train/learning_rate": 5.714285714285715e-07, "_step": 1, "_runtime": 9.113632766, "_timestamp": 1759045472.439646, "train/loss": 4.4459, "train/epoch": 0.002861230329041488, "train/grad_norm": 26, "train/global_step": 2}, {"train/learning_rate": 1.142857142857143e-06, "_step": 2, "_runtime": 10.719749752, "_timestamp": 1759045474.04628, "train/loss": 4.9759, "train/epoch": 0.004291845493562232, "train/grad_norm": 24.25, "train/global_step": 3}, {"train/learning_rate": 1.7142857142857143e-06, "_step": 3, "_runtime": 12.310640361, "_timestamp": 1759045475.6372523, "train/loss": 5.9722, "train/epoch": 0.005722460658082976, "train/grad_norm": 40.75, "train/global_step": 4}, {"train/learning_rate": 2.285714285714286e-06, "_step": 4, "_runtime": 13.905866542, "_timestamp": 1759045477.2324362, "train/loss": 4.7368, "train/epoch": 0.00715307582260372, "train/grad_norm": 27.25, "train/global_step": 5}, {"train/learning_rate": 2.8571428571428573e-06, "_step": 5, "_runtime": 15.69471114, "_timestamp": 1759045479.0213344, "train/loss": 4.7499, "train/epoch": 0.008583690987124463, "train/grad_norm": 44.5, "train/global_step": 6}, {"train/learning_rate": 3.4285714285714285e-06, "_step": 6, "_runtime": 17.461344518, "_timestamp": 1759045480.787923, "train/loss": 3.6615, "train/epoch": 0.010014306151645207, "train/grad_norm": 20.375, "train/global_step": 7}, {"train/learning_rate": 4e-06, "_step": 7, "_runtime": 19.365021822, "_timestamp": 1759045482.6914115, "train/loss": 4.4359, "train/epoch": 0.011444921316165951, "train/grad_norm": 33.25, "train/global_step": 8}, {"train/learning_rate": 4.571428571428572e-06, "_step": 8, "_runtime": 21.186654557, "_timestamp": 1759045484.5132499, "train/loss": 2.1544, "train/epoch": 0.012875536480686695, "train/grad_norm": 8.0625, "train/global_step": 9}, {"train/learning_rate": 5.142857142857143e-06, "_step": 9, "_runtime": 22.939054763, "_timestamp": 1759045486.2656665, "train/loss": 3.0573, "train/epoch": 0.01430615164520744, "train/grad_norm": 10.8125, "train/global_step": 10}, {"train/learning_rate": 5.7142857142857145e-06, "_step": 10, "_runtime": 24.556223946, "_timestamp": 1759045487.8827574, "train/loss": 2.8765, "train/epoch": 0.015736766809728183, "train/grad_norm": 12.375, "train/global_step": 11}, {"train/learning_rate": 6.285714285714286e-06, "_step": 11, "_runtime": 26.47203869, "_timestamp": 1759045489.7985554, "train/loss": 4.5228, "train/epoch": 0.017167381974248927, "train/grad_norm": 30.75, "train/global_step": 12}, {"train/learning_rate": 6.857142857142857e-06, "_step": 12, "_runtime": 28.312041722, "_timestamp": 1759045491.6385825, "train/loss": 3.5861, "train/epoch": 0.01859799713876967, "train/grad_norm": 37.75, "train/global_step": 13}, {"train/learning_rate": 7.428571428571429e-06, "_step": 13, "_runtime": 30.236297882, "_timestamp": 1759045493.562677, "train/loss": 2.025, "train/epoch": 0.020028612303290415, "train/grad_norm": 9.375, "train/global_step": 14}, {"train/learning_rate": 8e-06, "_step": 14, "_runtime": 32.018130189, "_timestamp": 1759045495.344571, "train/loss": 2.041, "train/epoch": 0.02145922746781116, "train/grad_norm": 4.75, "train/global_step": 15}, {"train/learning_rate": 8.571428571428571e-06, "_step": 15, "_runtime": 33.747881136, "_timestamp": 1759045497.0742908, "train/loss": 4.6377, "train/epoch": 0.022889842632331903, "train/grad_norm": 45, "train/global_step": 16}, {"train/learning_rate": 9.142857142857144e-06, "_step": 16, "_runtime": 35.331690373, "_timestamp": 1759045498.658308, "train/loss": 2.4074, "train/epoch": 0.024320457796852647, "train/grad_norm": 19.625, "train/global_step": 17}, {"train/learning_rate": 9.714285714285715e-06, "_step": 17, "_runtime": 37.116577177, "_timestamp": 1759045500.4431725, "train/loss": 3.5864, "train/epoch": 0.02575107296137339, "train/grad_norm": 35.75, "train/global_step": 18}, {"train/learning_rate": 1.0285714285714286e-05, "_step": 18, "_runtime": 38.838314467000004, "_timestamp": 1759045502.1648324, "train/loss": 2.0373, "train/epoch": 0.027181688125894134, "train/grad_norm": 14.5, "train/global_step": 19}, {"train/learning_rate": 1.0857142857142858e-05, "_step": 19, "_runtime": 40.54182466, "_timestamp": 1759045503.8683953, "train/loss": 1.4244, "train/epoch": 0.02861230329041488, "train/grad_norm": 7.84375, "train/global_step": 20}, {"train/learning_rate": 1.1428571428571429e-05, "_step": 20, "_runtime": 42.266529337, "_timestamp": 1759045505.593074, "train/loss": 3.8329, "train/epoch": 0.030042918454935622, "train/grad_norm": 41.25, "train/global_step": 21}, {"train/learning_rate": 1.2e-05, "_step": 21, "_runtime": 44.030363056, "_timestamp": 1759045507.3569162, "train/loss": 1.5743, "train/epoch": 0.031473533619456366, "train/grad_norm": 3.46875, "train/global_step": 22}, {"train/learning_rate": 1.2571428571428572e-05, "_step": 22, "_runtime": 45.760690861, "_timestamp": 1759045509.087272, "train/loss": 3.5444, "train/epoch": 0.032904148783977114, "train/grad_norm": 24.625, "train/global_step": 23}, {"train/learning_rate": 1.3142857142857143e-05, "_step": 23, "_runtime": 47.523639424, "_timestamp": 1759045510.849664, "train/loss": 1.967, "train/epoch": 0.034334763948497854, "train/grad_norm": 7.34375, "train/global_step": 24}, {"train/learning_rate": 1.3714285714285714e-05, "_step": 24, "_runtime": 49.693447902, "_timestamp": 1759045513.0198584, "train/loss": 1.1642, "train/epoch": 0.0357653791130186, "train/grad_norm": 2.203125, "train/global_step": 25}, {"train/learning_rate": 1.4285714285714285e-05, "_step": 25, "_runtime": 51.574103339, "_timestamp": 1759045514.9004567, "train/loss": 3.0676, "train/epoch": 0.03719599427753934, "train/grad_norm": 9.1875, "train/global_step": 26}, {"train/learning_rate": 1.4857142857142858e-05, "_step": 26, "_runtime": 53.371532302, "_timestamp": 1759045516.6980312, "train/loss": 1.4409, "train/epoch": 0.03862660944206009, "train/grad_norm": 4, "train/global_step": 27}, {"train/learning_rate": 1.5428571428571428e-05, "_step": 27, "_runtime": 55.152882552, "_timestamp": 1759045518.4796348, "train/loss": 1.0198, "train/epoch": 0.04005722460658083, "train/grad_norm": 3.578125, "train/global_step": 28}, {"train/learning_rate": 1.6e-05, "_step": 28, "_runtime": 56.823270148, "_timestamp": 1759045520.1498876, "train/loss": 1.7474, "train/epoch": 0.04148783977110158, "train/grad_norm": 10.0625, "train/global_step": 29}, {"train/learning_rate": 1.6571428571428574e-05, "_step": 29, "_runtime": 58.679403575, "_timestamp": 1759045522.0060425, "train/loss": 1.5867, "train/epoch": 0.04291845493562232, "train/grad_norm": 4.9375, "train/global_step": 30}, {"train/learning_rate": 1.7142857142857142e-05, "_step": 30, "_runtime": 60.716951207, "_timestamp": 1759045524.0432816, "train/loss": 1.4877, "train/epoch": 0.044349070100143065, "train/grad_norm": 4.90625, "train/global_step": 31}, {"train/learning_rate": 1.7714285714285717e-05, "_step": 31, "_runtime": 62.513730544, "_timestamp": 1759045525.8403618, "train/loss": 1.2496, "train/epoch": 0.045779685264663805, "train/grad_norm": 2.453125, "train/global_step": 32}, {"train/learning_rate": 1.8285714285714288e-05, "_step": 32, "_runtime": 64.276323378, "_timestamp": 1759045527.6029036, "train/loss": 1.0393, "train/epoch": 0.04721030042918455, "train/grad_norm": 2.125, "train/global_step": 33}, {"train/learning_rate": 1.8857142857142856e-05, "_step": 33, "_runtime": 66.140032054, "_timestamp": 1759045529.466798, "train/loss": 1.2417, "train/epoch": 0.04864091559370529, "train/grad_norm": 2.40625, "train/global_step": 34}, {"train/learning_rate": 1.942857142857143e-05, "_step": 34, "_runtime": 68.082080423, "_timestamp": 1759045531.4089515, "train/loss": 1.1124, "train/epoch": 0.05007153075822604, "train/grad_norm": 1.8828125, "train/global_step": 35}, {"train/learning_rate": 1.9999999999999998e-05, "_step": 35, "_runtime": 69.956122187, "_timestamp": 1759045533.2825332, "train/loss": 1.6624, "train/epoch": 0.05150214592274678, "train/grad_norm": 2.3125, "train/global_step": 36}, {"train/learning_rate": 2.0571428571428573e-05, "_step": 36, "_runtime": 72.160966623, "_timestamp": 1759045535.4877384, "train/loss": 1.3302, "train/epoch": 0.05293276108726753, "train/grad_norm": 1.2734375, "train/global_step": 37}, {"train/learning_rate": 2.1142857142857144e-05, "_step": 37, "_runtime": 73.683431968, "_timestamp": 1759045537.0102189, "train/loss": 1.4416, "train/epoch": 0.05436337625178827, "train/grad_norm": 1.765625, "train/global_step": 38}, {"train/learning_rate": 2.1714285714285715e-05, "_step": 38, "_runtime": 75.456775299, "_timestamp": 1759045538.7834187, "train/loss": 1.9021, "train/epoch": 0.055793991416309016, "train/grad_norm": 1.8359375, "train/global_step": 39}, {"train/learning_rate": 2.2285714285714287e-05, "_step": 39, "_runtime": 77.279296281, "_timestamp": 1759045540.6060898, "train/loss": 2.0769, "train/epoch": 0.05722460658082976, "train/grad_norm": 7.46875, "train/global_step": 40}, {"train/learning_rate": 2.2857142857142858e-05, "_step": 40, "_runtime": 79.138520975, "_timestamp": 1759045542.4652684, "train/loss": 1.038, "train/epoch": 0.058655221745350504, "train/grad_norm": 0.98046875, "train/global_step": 41}, {"train/learning_rate": 2.342857142857143e-05, "_step": 41, "_runtime": 81.018700484, "_timestamp": 1759045544.3454735, "train/loss": 0.7355, "train/epoch": 0.060085836909871244, "train/grad_norm": 3, "train/global_step": 42}, {"train/learning_rate": 2.4e-05, "_step": 42, "_runtime": 82.600748139, "_timestamp": 1759045545.9274921, "train/loss": 1.0124, "train/epoch": 0.06151645207439199, "train/grad_norm": 1.40625, "train/global_step": 43}, {"train/learning_rate": 2.4571428571428572e-05, "_step": 43, "_runtime": 84.305543356, "_timestamp": 1759045547.6323204, "train/loss": 1.0981, "train/epoch": 0.06294706723891273, "train/grad_norm": 1.3359375, "train/global_step": 44}, {"train/learning_rate": 2.5142857142857143e-05, "_step": 44, "_runtime": 86.128335007, "_timestamp": 1759045549.4549847, "train/loss": 1.3729, "train/epoch": 0.06437768240343347, "train/grad_norm": 3.75, "train/global_step": 45}];
+        const summary = {"_runtime": 86, "_step": 44, "_timestamp": 1759045549.454985, "_wandb": "{'runtime': 86}", "train/epoch": 0.06437768240343347, "train/global_step": 45, "train/grad_norm": 3.75, "train/learning_rate": 2.5142857142857143e-05, "train/loss": 1.3729};
+
+        // 渲染 Summary Cards
+        const summaryGrid = document.getElementById('summary-grid');
+        Object.entries(summary).forEach(([key, value]) => {
+            if (typeof value === 'number' || typeof value === 'string') {
+                const card = document.createElement('div');
+                card.className = 'summary-card';
+                card.innerHTML = `
+                    <div class="key">${key}</div>
+                    <div class="value">${typeof value === 'number' ? value.toFixed(4) : value}</div>
+                `;
+                summaryGrid.appendChild(card);
+            }
+        });
+
+        // 獲取所有數值列
+        const columns = historyData.length > 0 ? Object.keys(historyData[0]) : [];
+        const numericColumns = columns.filter(col => {
+            return historyData.some(row => typeof row[col] === 'number');
+        }).filter(col => col !== '_step' && col !== '_runtime' && col !== '_timestamp');
+
+        // 按指標類型分組
+        const metricGroups = {};
+        numericColumns.forEach(col => {
+            // 提取基礎指標名稱（去掉 train_, eval_, test_ 等前綴）
+            let baseMetric = col;
+            let prefix = '';
+
+            if (col.startsWith('train/')) {
+                prefix = 'train';
+                baseMetric = col.substring(6);
+            } else if (col.startsWith('eval/')) {
+                prefix = 'eval';
+                baseMetric = col.substring(5);
+            } else if (col.startsWith('test/')) {
+                prefix = 'test';
+                baseMetric = col.substring(5);
+            } else if (col.startsWith('train_')) {
+                prefix = 'train';
+                baseMetric = col.substring(6);
+            } else if (col.startsWith('eval_')) {
+                prefix = 'eval';
+                baseMetric = col.substring(5);
+            } else if (col.startsWith('test_')) {
+                prefix = 'test';
+                baseMetric = col.substring(5);
+            }
+
+            if (!metricGroups[baseMetric]) {
+                metricGroups[baseMetric] = [];
+            }
+            metricGroups[baseMetric].push({name: col, prefix: prefix});
+        });
+
+        // 為每個指標組創建圖表
+        const chartsDiv = document.getElementById('charts');
+        Object.entries(metricGroups).forEach(([baseMetric, metrics]) => {
+            const chartDiv = document.createElement('div');
+            chartDiv.className = 'chart-container';
+            chartDiv.id = 'chart-' + baseMetric.replace(/[^a-zA-Z0-9]/g, '_');
+            chartsDiv.appendChild(chartDiv);
+
+            const traces = [];
+            metrics.forEach(metric => {
+                // 優先使用 epoch 作為 X 軸，如果沒有則使用 _step
+                const x = historyData.map((row, idx) => {
+                    if (row['train/epoch'] !== undefined && row['train/epoch'] !== null) return row['train/epoch'];
+                    if (row['epoch'] !== undefined && row['epoch'] !== null) return row['epoch'];
+                    if (row['_step'] !== undefined) return row['_step'];
+                    return idx;
+                });
+                const y = historyData.map(row => row[metric.name]);
+
+                const trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines+markers',
+                    name: metric.name,
+                    line: {
+                        width: 2
+                    },
+                    marker: {
+                        size: 4
+                    },
+                    connectgaps: true
+                };
+                traces.push(trace);
+            });
+
+            // 決定 X 軸標籤
+            const hasEpoch = historyData.some(row => row['train/epoch'] !== undefined || row['epoch'] !== undefined);
+            const layout = {
+                title: baseMetric,
+                xaxis: {
+                    title: hasEpoch ? 'Epoch' : 'Step',
+                    gridcolor: '#e0e0e0'
+                },
+                yaxis: {
+                    title: 'Value',
+                    gridcolor: '#e0e0e0'
+                },
+                plot_bgcolor: '#ffffff',
+                paper_bgcolor: '#fafafa',
+                margin: {
+                    l: 60,
+                    r: 30,
+                    t: 50,
+                    b: 50
+                },
+                showlegend: true,
+                legend: {
+                    x: 1.05,
+                    y: 1
+                }
+            };
+
+            Plotly.newPlot('chart-' + baseMetric.replace(/[^a-zA-Z0-9]/g, '_'), traces, layout, {responsive: true});
+        });
+
+        // 如果沒有分組的指標，單獨顯示
+        if (Object.keys(metricGroups).length === 0 && numericColumns.length > 0) {
+            const hasEpoch = historyData.some(row => row['train/epoch'] !== undefined || row['epoch'] !== undefined);
+
+            numericColumns.forEach(col => {
+                // 優先使用 epoch 作為 X 軸，如果沒有則使用 _step
+                const x = historyData.map((row, idx) => {
+                    if (row['train/epoch'] !== undefined && row['train/epoch'] !== null) return row['train/epoch'];
+                    if (row['epoch'] !== undefined && row['epoch'] !== null) return row['epoch'];
+                    if (row['_step'] !== undefined) return row['_step'];
+                    return idx;
+                });
+                const y = historyData.map(row => row[col]);
+
+                const chartDiv = document.createElement('div');
+                chartDiv.className = 'chart-container';
+                chartDiv.id = 'chart-' + col;
+                chartsDiv.appendChild(chartDiv);
+
+                const trace = {
+                    x: x,
+                    y: y,
+                    mode: 'lines+markers',
+                    name: col,
+                    line: {
+                        width: 2
+                    },
+                    marker: {
+                        size: 4
+                    },
+                    connectgaps: true
+                };
+
+                const layout = {
+                    title: col,
+                    xaxis: {
+                        title: hasEpoch ? 'Epoch' : 'Step',
+                        gridcolor: '#e0e0e0'
+                    },
+                    yaxis: {
+                        title: 'Value',
+                        gridcolor: '#e0e0e0'
+                    },
+                    plot_bgcolor: '#ffffff',
+                    paper_bgcolor: '#fafafa',
+                    margin: {
+                        l: 60,
+                        r: 30,
+                        t: 50,
+                        b: 50
+                    }
+                };
+
+                Plotly.newPlot('chart-' + col, [trace], layout, {responsive: true});
+            });
+        }
+    </script>
+</body>
+</html>

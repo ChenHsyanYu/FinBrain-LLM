@@ -10,5 +10,5 @@
 
 ## 訓練模型成果： [Hugging Face](https://huggingface.co/chsyu80)
 * [exp 17](https://huggingface.co/chsyu80/final-finbrain-1010-TAIDE-8B-based/tree/main)
-* [exp10](https://huggingface.co/chsyu80/Finbrain-final-TAIDE-8B-based/tree/main)
+* [exp10 (最終模型)](https://huggingface.co/chsyu80/Finbrain-final-TAIDE-8B-based/tree/main)
 * [exp9](https://huggingface.co/chsyu80/Finbrain-TAIDE-8B-based)
